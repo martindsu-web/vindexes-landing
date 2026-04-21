@@ -3,133 +3,1254 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vindexes | Private Clarity</title>
+<title>Vindexes | Private Clarity.</title>
+<meta name="description" content="溫德斯 — 台灣法人籌碼智慧平台。每日早安速報、CIO 多空裁決、宏觀政策雷達，直送 Telegram。機構級情報，個人投資者也能掌握。">
+<meta name="keywords" content="台股分析, 法人籌碼, 台灣股票, 投資情報, Vindexes, 溫德斯">
+<meta property="og:title" content="Vindexes | Private Clarity.">
+<meta property="og:description" content="紛擾在市場之外，洞察在耳語之間。台灣機構級股市情報，7 天免費體驗。">
+<meta property="og:url" content="https://vindexes.com">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vindexes | Private Clarity.">
+<meta name="twitter:description" content="台灣法人籌碼追蹤 · CIO 多空裁決 · 宏觀政策雷達 — 機構情報，直送 Telegram。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@300;400;500&family=Noto+Serif+TC:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
 :root {
   --bg: #06090f;
   --gold: #c9a96e;
-  --gold-light: #e2c898;
-  --gold-dark: #8b6914;
+  --gold-dim: rgba(201,169,110,0.18);
+  --gold-glow: rgba(201,169,110,0.08);
   --silver: #7a8fa6;
-  --silver-light: #a8bfcc;
-  --white: #f0ede8;
-  --border: rgba(201,169,110,0.15);
+  --white: #f0ece4;
+  --white-dim: rgba(240,236,228,0.55);
+  --glass-bg: rgba(255,255,255,0.035);
+  --glass-border: rgba(201,169,110,0.14);
+  --glass-border-bright: rgba(201,169,110,0.32);
+  --line: rgba(201,169,110,0.07);
 }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { height: 100%; background: var(--bg); color: var(--white); font-family: 'Montserrat', sans-serif; font-weight: 300; overflow: hidden; }
-body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; opacity: 0.5; }
-body::after { content: ''; position: fixed; inset: 0; background-image: linear-gradient(rgba(201,169,110,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(201,169,110,0.025) 1px, transparent 1px); background-size: 80px 80px; pointer-events: none; z-index: 0; }
-.orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; }
-.orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(201,169,110,0.07) 0%, transparent 70%); top: -150px; right: -100px; animation: orbFloat 14s ease-in-out infinite; }
-.orb-2 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(94,189,138,0.03) 0%, transparent 70%); bottom: 50px; left: 100px; animation: orbFloat 18s ease-in-out infinite reverse; }
-@keyframes orbFloat { 0%, 100% { transform: translate(0,0); } 33% { transform: translate(20px,-15px); } 66% { transform: translate(-15px,20px); } }
-.container { position: relative; z-index: 1; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; }
-.logo { display: flex; align-items: center; gap: 14px; margin-bottom: 4.5rem; opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s; }
-.logo-mark svg { width: 36px; height: 36px; }
-.logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; letter-spacing: 0.2em; color: var(--white); }
-.logo-text span { color: var(--gold); }
-.eyebrow { display: flex; align-items: center; gap: 12px; justify-content: center; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.8s ease forwards 0.5s; }
-.eyebrow-line { width: 40px; height: 1px; background: var(--gold); opacity: 0.6; }
-.eyebrow-text { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
-h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 300; line-height: 1.05; margin-bottom: 0.3rem; opacity: 0; animation: fadeUp 1s ease forwards 0.7s; }
-h1 em { font-style: italic; color: var(--gold); }
-h1 .block { display: block; }
-.divider { width: 50px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 2.2rem auto; opacity: 0; animation: fadeUp 0.8s ease forwards 1s; }
-.tagline { font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem, 2vw, 1.2rem); font-style: italic; color: var(--silver-light); margin-bottom: 0.7rem; opacity: 0; animation: fadeUp 0.8s ease forwards 1.1s; }
-.cn-slogan { font-family: 'Noto Serif TC', serif; font-size: 0.8rem; color: var(--silver); letter-spacing: 0.12em; margin-bottom: 4rem; opacity: 0; animation: fadeUp 0.8s ease forwards 1.3s; }
-.notify-wrap { display: flex; flex-direction: column; align-items: center; gap: 1rem; opacity: 0; animation: fadeUp 0.8s ease forwards 1.5s; }
-.notify-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--silver); }
-.notify-form { display: flex; gap: 0; border: 1px solid var(--border); overflow: hidden; width: 360px; max-width: 100%; }
-.notify-input { flex: 1; padding: 13px 18px; background: rgba(255,255,255,0.03); border: none; color: var(--white); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 300; outline: none; letter-spacing: 0.05em; }
-.notify-input::placeholder { color: var(--silver); }
-.notify-btn { padding: 13px 22px; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%); border: none; color: #06090f; font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; white-space: nowrap; }
-.notify-btn:hover { background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%); }
-.notify-success { display: none; font-size: 0.7rem; color: var(--gold); letter-spacing: 0.1em; }
-.orb-visual { position: fixed; right: 8vw; top: 50%; transform: translateY(-50%); width: 300px; height: 300px; pointer-events: none; opacity: 0; animation: fadeIn 2s ease forwards 1s; z-index: 0; }
-.v-ring { position: absolute; border-radius: 50%; border: 1px solid; top: 50%; left: 50%; transform: translate(-50%,-50%); }
-.v-ring-1 { width: 280px; height: 280px; border-color: rgba(201,169,110,0.06); animation: rPulse 7s ease-in-out infinite; }
-.v-ring-2 { width: 210px; height: 210px; border-color: rgba(201,169,110,0.1); animation: rPulse 7s ease-in-out infinite 1.2s; }
-.v-ring-3 { width: 140px; height: 140px; border-color: rgba(201,169,110,0.18); animation: rPulse 7s ease-in-out infinite 2.4s; }
-.v-ring-4 { width: 70px; height: 70px; border-color: rgba(201,169,110,0.3); animation: rPulse 7s ease-in-out infinite 3.6s; }
-@keyframes rPulse { 0%, 100% { opacity: 0.5; transform: translate(-50%,-50%) scale(1); } 50% { opacity: 1; transform: translate(-50%,-50%) scale(1.03); } }
-.v-core { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 44px; height: 44px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, var(--gold-light), var(--gold) 40%, var(--gold-dark) 70%, #3d2d08); box-shadow: 0 0 40px rgba(201,169,110,0.35), 0 0 80px rgba(201,169,110,0.12); animation: corePulse 6s ease-in-out infinite; }
-@keyframes corePulse { 0%, 100% { box-shadow: 0 0 40px rgba(201,169,110,0.35), 0 0 80px rgba(201,169,110,0.12); } 50% { box-shadow: 0 0 55px rgba(201,169,110,0.5), 0 0 110px rgba(201,169,110,0.18); } }
-.footer { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 2.5rem; z-index: 1; opacity: 0; animation: fadeIn 1s ease forwards 2s; white-space: nowrap; }
-.footer a { font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(122,143,166,0.5); text-decoration: none; transition: color 0.3s; }
-.footer a:hover { color: var(--gold); }
-.footer-dot { width: 2px; height: 2px; border-radius: 50%; background: rgba(122,143,166,0.3); }
-@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@media (max-width: 768px) { .orb-visual { display: none; } }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ─── GRID OVERLAY ─── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── AMBIENT ORBS ─── */
+.orb-global {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(90px);
+}
+.orb-global.orb-1 {
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(201,169,110,0.07) 0%, transparent 70%);
+  top: -200px; right: -100px;
+}
+.orb-global.orb-2 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(201,169,110,0.04) 0%, transparent 70%);
+  bottom: 20%; left: -150px;
+}
+
+/* ─── NAVBAR ─── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 60px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(6,9,15,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.nav-logo-mark {
+  width: 32px; height: 32px;
+  position: relative;
+}
+.nav-logo-mark svg { width: 100%; height: 100%; }
+.nav-logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  list-style: none;
+}
+.nav-links a {
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--silver);
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--gold); }
+
+.nav-cta {
+  padding: 10px 28px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  background: transparent;
+  transition: background 0.3s, color 0.3s;
+}
+.nav-cta:hover {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+/* ─── HERO ─── */
+#hero {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 120px 60px 80px;
+  gap: 60px;
+  overflow: hidden;
+}
+
+.hero-left {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 32px;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 28px; height: 1px;
+  background: var(--gold);
+}
+
+.hero-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 5.5vw, 82px);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+.hero-headline .gold { color: var(--gold); }
+.hero-headline em {
+  font-style: italic;
+  font-weight: 300;
+}
+
+.hero-subheadline {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--silver);
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+
+.hero-slogan {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  font-weight: 300;
+  color: rgba(201,169,110,0.65);
+  margin-bottom: 52px;
+  line-height: 1.7;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.btn-primary {
+  padding: 16px 40px;
+  background: var(--gold);
+  color: var(--bg);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: opacity 0.3s, transform 0.2s;
+}
+.btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+
+.btn-ghost {
+  padding: 16px 40px;
+  border: 1px solid var(--glass-border-bright);
+  color: var(--white-dim);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: border-color 0.3s, color 0.3s;
+}
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ─── HERO RIGHT — ORB ─── */
+.hero-right {
+  position: relative;
+  z-index: 2;
+  height: 580px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orb-container {
+  position: relative;
+  width: 420px;
+  height: 420px;
+}
+
+.orb-core {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%,
+    rgba(201,169,110,0.22) 0%,
+    rgba(201,169,110,0.08) 35%,
+    rgba(201,169,110,0.02) 60%,
+    transparent 75%
+  );
+  animation: orbPulse 6s ease-in-out infinite;
+}
+.orb-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  animation: orbSpin 20s linear infinite;
+}
+.orb-ring-1 { inset: 20px; animation-duration: 20s; }
+.orb-ring-2 { inset: 60px; animation-duration: 30s; animation-direction: reverse; }
+.orb-ring-3 { inset: 100px; animation-duration: 45s; }
+
+.orb-center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,169,110,0.3) 0%, rgba(201,169,110,0.05) 60%, transparent 80%);
+  border: 1px solid rgba(201,169,110,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.orb-center-icon {
+  width: 48px; height: 48px;
+  opacity: 0.7;
+}
+
+/* Floating data chips */
+.data-chip {
+  position: absolute;
+  background: rgba(10,14,22,0.85);
+  border: 1px solid var(--glass-border-bright);
+  backdrop-filter: blur(16px);
+  padding: 12px 18px;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 160px;
+}
+.chip-label {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--silver);
+}
+.chip-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--white);
+}
+.chip-delta {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+.chip-delta.up { color: #6fcf97; }
+.chip-delta.down { color: #eb5757; }
+
+.chip-1 { top: 8%; left: -10%; animation: chipFloat1 7s ease-in-out infinite; }
+.chip-2 { top: 18%; right: -8%; animation: chipFloat2 9s ease-in-out infinite; }
+.chip-3 { bottom: 22%; left: -12%; animation: chipFloat3 8s ease-in-out infinite; }
+.chip-4 { bottom: 8%; right: -5%; animation: chipFloat1 10s ease-in-out infinite reverse; }
+
+@keyframes chipFloat1 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+@keyframes chipFloat2 {
+  0%, 100% { transform: translateY(-8px); }
+  50% { transform: translateY(8px); }
+}
+@keyframes chipFloat3 {
+  0%, 100% { transform: translateY(6px); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes orbPulse {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+@keyframes orbSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Connecting lines from chips to orb */
+.orb-dot {
+  position: absolute;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 10px rgba(201,169,110,0.6);
+}
+.orb-dot-1 { top: 22%; left: 50%; animation: dotPulse 3s ease-in-out infinite; }
+.orb-dot-2 { top: 50%; right: 18%; animation: dotPulse 3s ease-in-out infinite 1s; }
+.orb-dot-3 { bottom: 28%; left: 22%; animation: dotPulse 3s ease-in-out infinite 2s; }
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.6); }
+}
+
+/* ─── STATS BAR ─── */
+#stats {
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: rgba(6,9,15,0.6);
+  backdrop-filter: blur(10px);
+}
+.stats-inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0 60px;
+}
+.stat-item {
+  padding: 48px 40px;
+  border-right: 1px solid var(--line);
+  position: relative;
+}
+.stat-item:last-child { border-right: none; }
+.stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stat-number sup { font-size: 24px; vertical-align: super; }
+.stat-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--silver);
+}
+.stat-desc {
+  font-size: 12px;
+  color: rgba(122,143,166,0.6);
+  margin-top: 4px;
+}
+
+/* ─── SECTION BASE ─── */
+section { position: relative; z-index: 2; }
+
+.section-header {
+  text-align: center;
+  margin-bottom: 72px;
+}
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+.section-eyebrow::before, .section-eyebrow::after {
+  content: '';
+  display: block;
+  width: 40px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+.section-eyebrow::after {
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.section-sub {
+  font-size: 13px;
+  color: var(--silver);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* ─── FEATURES ─── */
+#features {
+  padding: 120px 60px;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.feature-card {
+  background: var(--bg);
+  padding: 52px 44px;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition: background 0.4s;
+}
+.feature-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--glass-bg);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.feature-card:hover::before { opacity: 1; }
+.feature-card:hover { background: rgba(201,169,110,0.03); }
+
+.feature-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  color: rgba(201,169,110,0.35);
+  letter-spacing: 0.1em;
+  margin-bottom: 28px;
+}
+.feature-icon {
+  width: 40px; height: 40px;
+  margin-bottom: 24px;
+  opacity: 0.75;
+}
+.feature-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+.feature-name-zh {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.feature-desc {
+  font-size: 13px;
+  color: var(--silver);
+  line-height: 1.8;
+}
+.feature-glow {
+  position: absolute;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,169,110,0.06) 0%, transparent 70%);
+  bottom: -60px; right: -40px;
+  pointer-events: none;
+}
+
+/* ─── PRICING ─── */
+#pricing {
+  padding: 120px 60px;
+  background: rgba(201,169,110,0.015);
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.pricing-card {
+  background: var(--bg);
+  padding: 52px 36px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.3s;
+}
+.pricing-card.featured {
+  background: rgba(201,169,110,0.05);
+}
+.pricing-card.featured::before {
+  content: 'RECOMMENDED';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translate(-50%, 0);
+  background: var(--gold);
+  color: var(--bg);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  padding: 5px 18px;
+}
+.pricing-tier {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+.pricing-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+.pricing-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.pricing-price span {
+  font-size: 18px;
+  color: var(--silver);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+.pricing-period {
+  font-size: 11px;
+  color: var(--silver);
+  letter-spacing: 0.08em;
+  margin-bottom: 36px;
+}
+.pricing-divider {
+  height: 1px;
+  background: var(--line);
+  margin-bottom: 32px;
+}
+.pricing-features {
+  list-style: none;
+  flex: 1;
+  margin-bottom: 40px;
+}
+.pricing-features li {
+  font-size: 12px;
+  color: var(--silver);
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(201,169,110,0.05);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  line-height: 1.5;
+}
+.pricing-features li::before {
+  content: '—';
+  color: rgba(201,169,110,0.4);
+  flex-shrink: 0;
+  font-size: 10px;
+}
+.pricing-cta {
+  padding: 14px 24px;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  display: block;
+  transition: all 0.3s;
+}
+.pricing-cta.outline {
+  border: 1px solid var(--glass-border-bright);
+  color: var(--silver);
+  background: transparent;
+}
+.pricing-cta.outline:hover { border-color: var(--gold); color: var(--gold); }
+.pricing-cta.filled {
+  background: var(--gold);
+  color: var(--bg);
+}
+.pricing-cta.filled:hover { opacity: 0.85; }
+
+/* ─── FAQ ─── */
+#faq {
+  padding: 120px 60px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.faq-list { border-top: 1px solid var(--line); }
+.faq-item {
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+.faq-q {
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: left;
+  padding: 28px 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  transition: color 0.3s;
+}
+.faq-q:hover { color: var(--gold); }
+.faq-q-icon {
+  flex-shrink: 0;
+  width: 20px; height: 20px;
+  position: relative;
+  opacity: 0.5;
+  transition: opacity 0.3s, transform 0.3s;
+}
+.faq-q-icon::before, .faq-q-icon::after {
+  content: '';
+  position: absolute;
+  background: var(--gold);
+  transition: transform 0.3s;
+}
+.faq-q-icon::before { width: 100%; height: 1px; top: 50%; left: 0; transform: translateY(-50%); }
+.faq-q-icon::after { width: 1px; height: 100%; left: 50%; top: 0; transform: translateX(-50%); }
+.faq-item.open .faq-q { color: var(--gold); }
+.faq-item.open .faq-q-icon { opacity: 1; transform: rotate(45deg); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.faq-a-inner {
+  padding: 0 0 28px;
+  font-size: 14px;
+  color: var(--silver);
+  line-height: 1.9;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  position: relative;
+  z-index: 2;
+  padding: 72px 60px 48px;
+  border-top: 1px solid var(--line);
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+.footer-brand .nav-logo-text {
+  display: block;
+  margin-bottom: 16px;
+}
+.footer-brand p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: rgba(201,169,110,0.5);
+  line-height: 1.7;
+  max-width: 280px;
+}
+.footer-col-title {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 14px; }
+.footer-links a {
+  font-size: 13px;
+  color: var(--silver);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--gold); }
+
+.telegram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  border: 1px solid var(--glass-border-bright);
+  color: var(--white-dim);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  transition: all 0.3s;
+  margin-top: 8px;
+}
+.telegram-link:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.telegram-icon {
+  width: 18px; height: 18px;
+  opacity: 0.7;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+.footer-legal {
+  font-size: 11px;
+  color: rgba(122,143,166,0.45);
+  letter-spacing: 0.05em;
+}
+.footer-disclaimer {
+  font-size: 10px;
+  color: rgba(122,143,166,0.35);
+  text-align: right;
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+
 </style>
 </head>
 <body>
-<div class="orb orb-1"></div>
-<div class="orb orb-2"></div>
-<div class="orb-visual">
-  <div class="v-ring v-ring-1"></div>
-  <div class="v-ring v-ring-2"></div>
-  <div class="v-ring v-ring-3"></div>
-  <div class="v-ring v-ring-4"></div>
-  <div class="v-core"></div>
-</div>
-<div class="container">
-  <div class="logo">
-    <div class="logo-mark">
-      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="18" cy="18" r="16" stroke="#c9a96e" stroke-width="0.8" opacity="0.35"/>
-        <circle cx="18" cy="18" r="11" stroke="#c9a96e" stroke-width="0.8" opacity="0.55"/>
-        <circle cx="18" cy="18" r="6.5" stroke="#c9a96e" stroke-width="0.8" opacity="0.75"/>
-        <circle cx="18" cy="18" r="2.8" fill="#c9a96e"/>
-        <line x1="18" y1="2" x2="18" y2="7" stroke="#c9a96e" stroke-width="0.8" opacity="0.4"/>
-        <line x1="18" y1="29" x2="18" y2="34" stroke="#c9a96e" stroke-width="0.8" opacity="0.4"/>
-        <line x1="2" y1="18" x2="7" y2="18" stroke="#c9a96e" stroke-width="0.8" opacity="0.4"/>
-        <line x1="29" y1="18" x2="34" y2="18" stroke="#c9a96e" stroke-width="0.8" opacity="0.4"/>
+
+<!-- Global ambient orbs -->
+<div class="orb-global orb-1"></div>
+<div class="orb-global orb-2"></div>
+
+<!-- ─── NAVBAR ─── -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="16" cy="16" r="15" stroke="#c9a96e" stroke-width="1"/>
+        <path d="M8 22 L16 10 L24 22" stroke="#c9a96e" stroke-width="1.2" fill="none"/>
+        <path d="M11 18 L16 10 L21 18" stroke="#c9a96e" stroke-width="0.7" fill="none" opacity="0.5"/>
+        <circle cx="16" cy="10" r="1.5" fill="#c9a96e"/>
       </svg>
     </div>
-    <span class="logo-text">VINDE<span>X</span>ES</span>
-  </div>
-  <div class="eyebrow">
-    <div class="eyebrow-line"></div>
-    <span class="eyebrow-text">Coming Soon · Private Intelligence</span>
-    <div class="eyebrow-line"></div>
-  </div>
-  <h1>
-    <em>Private</em>
-    <span class="block">Clarity.</span>
-  </h1>
-  <div class="divider"></div>
-  <p class="tagline">Institutional Intelligence for the Serious Investor.</p>
-  <p class="cn-slogan">紛擾在市場之外，洞察在耳語之間。</p>
-  <div class="notify-wrap">
-    <span class="notify-label">搶先獲得上線通知</span>
-    <div class="notify-form">
-      <input type="email" class="notify-input" placeholder="your@email.com" id="emailInput">
-      <button class="notify-btn" onclick="handleNotify()">通知我</button>
+    <span class="nav-logo-text">VINDEXES</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#features">功能介紹</a></li>
+    <li><a href="#pricing">訂閱方案</a></li>
+    <li><a href="#faq">常見問題</a></li>
+    <li><a href="#footer">聯絡我們</a></li>
+  </ul>
+  <a href="#pricing" class="nav-cta">開始體驗</a>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Taiwan Stock Intelligence</div>
+    <h1 class="hero-headline">
+      Vindexes<br>
+      <em class="gold">Private</em> Clarity.
+    </h1>
+    <p class="hero-subheadline">Institutional Intelligence for the Serious Investor.</p>
+    <p class="hero-slogan">紛擾在市場之外，洞察在耳語之間。</p>
+    <div class="hero-ctas">
+      <a href="#pricing" class="btn-primary">開始訂閱</a>
+      <a href="#features" class="btn-ghost">探索功能</a>
     </div>
-    <span class="notify-success" id="successMsg">✓ &nbsp;已登記，上線時我們會第一時間通知您</span>
   </div>
-</div>
-<div class="footer">
-  <a href="https://t.me/taiwan_stock_research" target="_blank">Telegram 頻道</a>
-  <div class="footer-dot"></div>
-  <a href="https://t.me/Taiwan_Stock_ResearchBot" target="_blank">訂閱 Bot</a>
-  <div class="footer-dot"></div>
-  <span style="font-size:0.55rem;letter-spacing:0.15em;color:rgba(122,143,166,0.3);">© 2025 VINDEXES · SINGAPORE</span>
-</div>
-<script>
-function handleNotify() {
-  const input = document.getElementById('emailInput');
-  const success = document.getElementById('successMsg');
-  const form = document.querySelector('.notify-form');
-  if (!input.value || !input.value.includes('@')) { input.style.borderLeft = '2px solid rgba(201,169,110,0.5)'; input.focus(); return; }
-  form.style.opacity = '0'; form.style.transition = 'opacity 0.4s';
-  setTimeout(() => { form.style.display = 'none'; success.style.display = 'block'; }, 400);
+
+  <div class="hero-right">
+    <div class="orb-container">
+      <!-- Orb rings -->
+      <div class="orb-core"></div>
+      <div class="orb-ring orb-ring-1"></div>
+      <div class="orb-ring orb-ring-2"></div>
+      <div class="orb-ring orb-ring-3"></div>
+
+      <!-- Center -->
+      <div class="orb-center">
+        <svg class="orb-center-icon" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="23" stroke="#c9a96e" stroke-width="0.8" opacity="0.5"/>
+          <path d="M12 34 L24 14 L36 34" stroke="#c9a96e" stroke-width="1.5" fill="none"/>
+          <path d="M16 28 L24 14 L32 28" stroke="#c9a96e" stroke-width="0.8" fill="none" opacity="0.6"/>
+          <circle cx="24" cy="14" r="2" fill="#c9a96e"/>
+        </svg>
+      </div>
+
+      <!-- Pulse dots -->
+      <div class="orb-dot orb-dot-1"></div>
+      <div class="orb-dot orb-dot-2"></div>
+      <div class="orb-dot orb-dot-3"></div>
+
+      <!-- Floating data chips -->
+      <div class="data-chip chip-1">
+        <span class="chip-label">台積電 2330</span>
+        <span class="chip-value">NT$910</span>
+        <span class="chip-delta up">▲ +2.8%</span>
+      </div>
+      <div class="data-chip chip-2">
+        <span class="chip-label">法人持股比</span>
+        <span class="chip-value">67.4%</span>
+        <span class="chip-delta up">▲ 淨買超</span>
+      </div>
+      <div class="data-chip chip-3">
+        <span class="chip-label">加權指數</span>
+        <span class="chip-value">21,340</span>
+        <span class="chip-delta down">▼ −0.4%</span>
+      </div>
+      <div class="data-chip chip-4">
+        <span class="chip-label">CIO 信號</span>
+        <span class="chip-value">Bullish</span>
+        <span class="chip-delta up">● 佈局中</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STATS BAR ─── -->
+<section id="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-number" style="font-size:36px;letter-spacing:0.02em">每日推播</div>
+      <div class="stat-label">Daily Intel</div>
+      <div class="stat-desc">每個交易日準時送達</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">2,300<sup>+</sup></div>
+      <div class="stat-label">Tracked Stocks</div>
+      <div class="stat-desc">追蹤個股覆蓋數</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">4<span style="font-size:24px">層</span></div>
+      <div class="stat-label">Risk Filters</div>
+      <div class="stat-desc">風險過濾層級</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">7<span style="font-size:24px">天</span></div>
+      <div class="stat-label">Free Trial</div>
+      <div class="stat-desc">免費完整體驗</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FEATURES ─── -->
+<section id="features">
+  <div class="section-header">
+    <div class="section-eyebrow">Intelligence Modules</div>
+    <h2 class="section-title">Six Pillars of<br><em>Institutional Clarity</em></h2>
+    <p class="section-sub">Every module is curated from the same sources institutional desks rely on — distilled for clarity, delivered with precision.</p>
+  </div>
+
+  <div class="features-grid">
+    <!-- 1 -->
+    <div class="feature-card">
+      <div class="feature-number">01</div>
+      <svg class="feature-icon" viewBox="0 0 40 40" fill="none">
+        <rect x="4" y="4" width="32" height="32" stroke="#c9a96e" stroke-width="0.8" opacity="0.4"/>
+        <path d="M10 28 L17 16 L23 22 L30 10" stroke="#c9a96e" stroke-width="1.2" fill="none"/>
+        <circle cx="30" cy="10" r="2" fill="#c9a96e" opacity="0.8"/>
+        <circle cx="17" cy="16" r="1.5" fill="#c9a96e" opacity="0.6"/>
+        <path d="M8 32 L8 28 M14 32 L14 24 M20 32 L20 26 M26 32 L26 20 M32 32 L32 16" stroke="#c9a96e" stroke-width="0.7" opacity="0.3"/>
+      </svg>
+      <div class="feature-name">Institutional Flow</div>
+      <div class="feature-name-zh">法人籌碼追蹤</div>
+      <p class="feature-desc">即時追蹤外資、投信、自營商三大法人動向。大戶持股分布、TDCC 週轉率、外資連續買超榜，讓你比市場早一步看見資金流向。</p>
+      <div class="feature-glow"></div>
+    </div>
+
+    <!-- 2 -->
+    <div class="feature-card">
+      <div class="feature-number">02</div>
+      <svg class="feature-icon" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="14" stroke="#c9a96e" stroke-width="0.8" opacity="0.35"/>
+        <path d="M13 26 L20 10 L27 26" stroke="#c9a96e" stroke-width="1.2" fill="none"/>
+        <path d="M15.5 21 L24.5 21" stroke="#c9a96e" stroke-width="0.8" opacity="0.6"/>
+        <circle cx="20" cy="10" r="2" fill="#c9a96e" opacity="0.8"/>
+      </svg>
+      <div class="feature-name">Alpha Strategy</div>
+      <div class="feature-name-zh">策略選股</div>
+      <p class="feature-desc">四組分析鏡頭，同時運作：Dalio 宏觀週期定位現在該加碼、減碼、還是觀望；Marks 市場溫度計告訴你市場現在偏貴還是偏便宜；Munger 護城河篩選器識別值得長期持有的個股；Druckenmiller 催化劑雷達捕捉流動性方向與轉折訊號。四個鏡頭，一次裁決。L1 收到宏觀結論，L2/L3 看見完整推導過程。</p>
+      <div class="feature-glow"></div>
+    </div>
+
+    <!-- 3 -->
+    <div class="feature-card">
+      <div class="feature-number">03</div>
+      <svg class="feature-icon" viewBox="0 0 40 40" fill="none">
+        <path d="M6 30 L14 18 L20 24 L28 12 L34 16" stroke="#c9a96e" stroke-width="1.2" fill="none"/>
+        <path d="M6 30 L34 30" stroke="#c9a96e" stroke-width="0.7" opacity="0.3"/>
+        <circle cx="14" cy="18" r="1.5" fill="#c9a96e" opacity="0.6"/>
+        <circle cx="28" cy="12" r="1.5" fill="#c9a96e" opacity="0.6"/>
+        <path d="M32 8 L34 12 L30 12 Z" fill="#c9a96e" opacity="0.5"/>
+      </svg>
+      <div class="feature-name">Trend Intelligence</div>
+      <div class="feature-name-zh">趨勢報告</div>
+      <p class="feature-desc">每週深度產業報告，涵蓋半導體、AI、地緣政治、Fed 動向。17 位市場專家訊號整合，去除噪音，留下值得你花時間讀的部分。</p>
+      <div class="feature-glow"></div>
+    </div>
+
+    <!-- 4 -->
+    <div class="feature-card">
+      <div class="feature-number">04</div>
+      <svg class="feature-icon" viewBox="0 0 40 40" fill="none">
+        <rect x="6" y="10" width="28" height="22" rx="1" stroke="#c9a96e" stroke-width="0.8" opacity="0.4"/>
+        <path d="M6 16 L34 16" stroke="#c9a96e" stroke-width="0.7" opacity="0.4"/>
+        <path d="M12 22 L20 22 M12 26 L24 26" stroke="#c9a96e" stroke-width="1" opacity="0.7"/>
+        <circle cx="29" cy="13" r="2.5" fill="rgba(201,169,110,0.25)" stroke="#c9a96e" stroke-width="0.8"/>
+        <path d="M28.3 13 L29 12 L29.7 13 L29 14 Z" fill="#c9a96e" opacity="0.8"/>
+      </svg>
+      <div class="feature-name">CIO Daily Verdict</div>
+      <div class="feature-name-zh">CIO 每日裁決</div>
+      <p class="feature-desc">市場每天都在製造噪音。CIO 系統做的事只有一件：在噪音裡找出那一個值得你花兩分鐘讀完的判斷。盤前 08:10、盤後 13:40 推播。</p>
+      <div class="feature-glow"></div>
+    </div>
+
+    <!-- 5 -->
+    <div class="feature-card">
+      <div class="feature-number">05</div>
+      <svg class="feature-icon" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="14" stroke="#c9a96e" stroke-width="0.8" opacity="0.3"/>
+        <circle cx="20" cy="20" r="9" stroke="#c9a96e" stroke-width="0.7" opacity="0.5"/>
+        <circle cx="20" cy="20" r="4" stroke="#c9a96e" stroke-width="0.7" opacity="0.8"/>
+        <path d="M20 6 L20 10 M20 30 L20 34 M6 20 L10 20 M30 20 L34 20" stroke="#c9a96e" stroke-width="1" opacity="0.5"/>
+        <circle cx="20" cy="20" r="1.5" fill="#c9a96e"/>
+      </svg>
+      <div class="feature-name">Macro Radar</div>
+      <div class="feature-name-zh">宏觀政策雷達</div>
+      <p class="feature-desc">Fed 利率動向、台灣央行政策、地緣政治事件、產業政策變化。系統自動偵測對台股有實質影響的政策訊號，不是新聞整理，是影響評估。</p>
+      <div class="feature-glow"></div>
+    </div>
+
+    <!-- 6 -->
+    <div class="feature-card">
+      <div class="feature-number">06</div>
+      <svg class="feature-icon" viewBox="0 0 40 40" fill="none">
+        <path d="M20 4 L36 14 L36 26 L20 36 L4 26 L4 14 Z" stroke="#c9a96e" stroke-width="0.8" opacity="0.4" fill="none"/>
+        <path d="M20 12 L28 17 L28 23 L20 28 L12 23 L12 17 Z" stroke="#c9a96e" stroke-width="0.8" opacity="0.8" fill="rgba(201,169,110,0.05)"/>
+        <circle cx="20" cy="20" r="3" fill="#c9a96e" opacity="0.7"/>
+        <path d="M20 4 L20 12 M36 14 L28 17 M36 26 L28 23 M20 36 L20 28 M4 26 L12 23 M4 14 L12 17" stroke="#c9a96e" stroke-width="0.5" opacity="0.3"/>
+      </svg>
+      <div class="feature-name">Member Access</div>
+      <div class="feature-name-zh">會員專區</div>
+      <p class="feature-desc">依訂閱層級解鎖不同深度的情報內容。L1 早安速報、L2 盤中警訊、L3 CIO 辯論原文與避險提醒。個人化 Telegram 推播，歷史報告存檔。</p>
+      <div class="feature-glow"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRICING ─── -->
+<section id="pricing">
+  <div class="section-header">
+    <div class="section-eyebrow">Membership</div>
+    <h2 class="section-title">Select Your<br><em>Level of Access</em></h2>
+    <p class="section-sub">Every tier grants entry. Higher tiers grant deeper intelligence.</p>
+  </div>
+
+  <div class="pricing-grid">
+    <!-- Free Trial -->
+    <div class="pricing-card">
+      <div class="pricing-tier">Free Trial</div>
+      <div class="pricing-name">免費體驗</div>
+      <div class="pricing-price" style="font-size:36px;letter-spacing:-0.02em;">7天</div>
+      <div class="pricing-period">完整 L1 體驗，每人限一次</div>
+      <div class="pricing-divider"></div>
+      <ul class="pricing-features">
+        <li>完整 L1 內容體驗</li>
+        <li>健檢完成後自動開通</li>
+        <li>早安速報 7 天完整接收</li>
+        <li>到期自動降回免費層</li>
+      </ul>
+      <a href="#" class="pricing-cta outline">立即免費體驗</a>
+    </div>
+
+    <!-- L1 -->
+    <div class="pricing-card">
+      <div class="pricing-tier">Level I</div>
+      <div class="pricing-name">基礎</div>
+      <div class="pricing-price">USD <span style="font-size:36px">10</span></div>
+      <div class="pricing-period">/ 月 &nbsp;·&nbsp; ~NT$320</div>
+      <div class="pricing-divider"></div>
+      <ul class="pricing-features">
+        <li>早安速報 08:05</li>
+        <li>每交易日 150 字市場結論</li>
+        <li>直送 Telegram 個人頻道</li>
+        <li>法人籌碼週度摘要</li>
+      </ul>
+      <a href="#" class="pricing-cta outline">立即訂閱</a>
+    </div>
+
+    <!-- L2 — Featured -->
+    <div class="pricing-card featured">
+      <div class="pricing-tier">Level II</div>
+      <div class="pricing-name">進階</div>
+      <div class="pricing-price">USD <span style="font-size:36px">20</span></div>
+      <div class="pricing-period">/ 月 &nbsp;·&nbsp; ~NT$640</div>
+      <div class="pricing-divider"></div>
+      <ul class="pricing-features">
+        <li>L1 全部內容</li>
+        <li>完整早報（深度版）</li>
+        <li>盤中警訊即時推播</li>
+        <li>週末策略報告</li>
+        <li>趨勢報告完整版</li>
+        <li>宏觀政策雷達週報</li>
+      </ul>
+      <a href="#" class="pricing-cta filled">立即訂閱</a>
+    </div>
+
+    <!-- L3 -->
+    <div class="pricing-card">
+      <div class="pricing-tier">Level III</div>
+      <div class="pricing-name">機構級</div>
+      <div class="pricing-price">USD <span style="font-size:36px">40</span></div>
+      <div class="pricing-period">/ 月 &nbsp;·&nbsp; ~NT$1,280</div>
+      <div class="pricing-divider"></div>
+      <ul class="pricing-features">
+        <li>L2 全部內容</li>
+        <li>CIO 辯論原文</li>
+        <li>避險提醒即時推播</li>
+        <li>個股深度分析</li>
+        <li>每月配置觀點</li>
+        <li>全台限額開放</li>
+      </ul>
+      <a href="#" class="pricing-cta outline">申請資格</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section id="faq">
+  <div class="section-header" style="max-width:900px;margin:0 auto 72px;">
+    <div class="section-eyebrow">FAQ</div>
+    <h2 class="section-title">Common Questions</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Vindexes 適合什麼樣的投資者？
+        <span class="faq-q-icon"></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">Vindexes 專為認真看待投資的個人投資者設計——無論是剛接觸台股的新手，或已有多年經驗的資深投資人。我們的內容從週報到機構級數據分析，依會員等級提供不同深度的情報支援。</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        法人持股資料是即時的嗎？
+        <span class="faq-q-icon"></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">我們的法人持股資料來源於台灣證交所每日公開揭露，每個交易日收盤後 2 小時內完成彙整與分析，並推送至 L1 以上會員。我們額外提供獨家的趨勢解讀，而非僅呈現原始數字。</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        可以隨時取消訂閱嗎？
+        <span class="faq-q-icon"></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">是的。所有訂閱方案均可在帳戶設定中隨時取消，不需理由，不設違約金。取消後您仍可使用至當期訂閱結束日期。我們相信，留住會員靠的是品質，而非鎖定。</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        CIO 裁決系統是如何運作的？
+        <span class="faq-q-icon"></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">每個交易日，多空雙方 AI 代理人獨立進行辯論，CIO 依六維 Dalio 框架進行裁決。這是系統化的分析流程，不是人工撰寫的內容，也不是投資建議。</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Vindexes 的情報來源是什麼？跟我自己看新聞有什麼不同？
+        <span class="faq-q-icon"></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">一般新聞是事後報導，Vindexes 追蹤的是事前訊號——法人籌碼異動、宏觀指標轉折、CIO 系統對多空力道的即時定位。我們不重寫你看得到的內容，我們整合你沒有時間看的那些。</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        如何透過 Telegram 接收訊號？
+        <span class="faq-q-icon"></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">訂閱成功後，您將收到歡迎信，其中包含對應等級的 Telegram 頻道邀請連結。L2 以上會員可加入互動群組，L3 則享有獨立私人群組。所有重大訊號均同步於頻道推送。</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer id="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="nav-logo-text">VINDEXES</span>
+      <p>紛擾在市場之外，<br>洞察在耳語之間。</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Platform</div>
+      <ul class="footer-links">
+        <li><a href="#features">Intelligence Modules</a></li>
+        <li><a href="#pricing">Membership</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Community</div>
+      <p style="font-size:13px;color:var(--silver);margin-bottom:20px;line-height:1.7;">加入 Telegram 頻道，<br>接收即時市場情報。</p>
+      <a href="https://t.me/vindexes" class="telegram-link" target="_blank">
+        <svg class="telegram-icon" viewBox="0 0 24 24" fill="#c9a96e">
+          <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.94 8.18l-2.03 9.57c-.15.68-.55.84-1.12.52l-3.1-2.28-1.49 1.43c-.17.17-.3.3-.62.3l.22-3.17 5.74-5.19c.25-.22-.05-.34-.39-.12L7.06 14.22 4.03 13.3c-.67-.21-.68-.67.14-.99l11.68-4.5c.56-.2 1.04.14.09.37z"/>
+        </svg>
+        加入 Telegram 頻道
+      </a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-legal">© 2026 Vindexes · Vindexes Pte. Ltd. · Singapore</div>
+    <div class="footer-disclaimer">本平台提供市場研究資訊，非投資建議。投資有風險，請審慎評估。</div>
+  </div>
+</footer>
+
+
+</body><script>
+// FAQ accordion
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const answer = item.querySelector('.faq-a');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => {
+    el.classList.remove('open');
+    el.querySelector('.faq-a').style.maxHeight = '0';
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+  }
 }
-document.getElementById('emailInput').addEventListener('keypress', (e) => { if (e.key === 'Enter') handleNotify(); });
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  nav.style.borderBottomColor = window.scrollY > 80
+    ? 'rgba(201,169,110,0.2)'
+    : 'rgba(201,169,110,0.14)';
+});
+
+// Animate stats on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const nums = entry.target.querySelectorAll('.stat-number');
+      nums.forEach(n => {
+        n.style.opacity = '0';
+        n.style.transform = 'translateY(12px)';
+        n.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        setTimeout(() => {
+          n.style.opacity = '1';
+          n.style.transform = 'translateY(0)';
+        }, 100);
+      });
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('#stats').forEach(el => observer.observe(el));
 </script>
+
+<style>
+body.no-grid::before { display: none; }
+</style>
+
 </body>
 </html>
