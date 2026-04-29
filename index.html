@@ -810,8 +810,30 @@ footer {
   line-height: 1.6;
 }
 
-
 </style>
+<template id="__bundler_thumbnail" data-bg-color="#06090f">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="1200" height="800" fill="#06090f"/>
+    <!-- Grid lines -->
+    <line x1="0" y1="200" x2="1200" y2="200" stroke="rgba(201,169,110,0.08)" stroke-width="1"/>
+    <line x1="0" y1="400" x2="1200" y2="400" stroke="rgba(201,169,110,0.08)" stroke-width="1"/>
+    <line x1="0" y1="600" x2="1200" y2="600" stroke="rgba(201,169,110,0.08)" stroke-width="1"/>
+    <line x1="300" y1="0" x2="300" y2="800" stroke="rgba(201,169,110,0.08)" stroke-width="1"/>
+    <line x1="600" y1="0" x2="600" y2="800" stroke="rgba(201,169,110,0.08)" stroke-width="1"/>
+    <line x1="900" y1="0" x2="900" y2="800" stroke="rgba(201,169,110,0.08)" stroke-width="1"/>
+    <!-- Orb glow -->
+    <radialGradient id="og" cx="50%" cy="50%"><stop offset="0%" stop-color="#c9a96e" stop-opacity="0.18"/><stop offset="100%" stop-color="#c9a96e" stop-opacity="0"/></radialGradient>
+    <circle cx="600" cy="400" r="300" fill="url(#og)"/>
+    <!-- Logo mark -->
+    <circle cx="600" cy="340" r="60" stroke="#c9a96e" stroke-width="1.5" fill="none"/>
+    <path d="M572 380 L600 320 L628 380" stroke="#c9a96e" stroke-width="2.5" fill="none"/>
+    <circle cx="600" cy="320" r="5" fill="#c9a96e"/>
+    <!-- Wordmark -->
+    <text x="600" y="440" text-anchor="middle" font-family="serif" font-size="36" font-weight="300" letter-spacing="12" fill="#c9a96e">VINDEXES</text>
+    <text x="600" y="480" text-anchor="middle" font-family="serif" font-size="16" fill="rgba(201,169,110,0.5)" letter-spacing="4">Private Clarity.</text>
+  </svg>
+</template>
 </head>
 <body>
 
@@ -952,7 +974,7 @@ footer {
       </svg>
       <div class="feature-name">Institutional Flow</div>
       <div class="feature-name-zh">法人籌碼追蹤</div>
-      <p class="feature-desc">即時追蹤外資、投信、自營商三大法人動向。大戶持股分布、TDCC 週轉率、外資連續買超榜，讓你比市場早一步看見資金流向。</p>
+      <p class="feature-desc">每日追蹤外資、投信、自營商三大法人動向，台灣證交所資料收盤後 2 小時內彙整，呈現買超／賣超趨勢與持股比變化。</p>
       <div class="feature-glow"></div>
     </div>
 
@@ -965,9 +987,9 @@ footer {
         <path d="M15.5 21 L24.5 21" stroke="#c9a96e" stroke-width="0.8" opacity="0.6"/>
         <circle cx="20" cy="10" r="2" fill="#c9a96e" opacity="0.8"/>
       </svg>
-      <div class="feature-name">Alpha Strategy</div>
-      <div class="feature-name-zh">策略選股</div>
-      <p class="feature-desc">四組分析鏡頭，同時運作：Dalio 宏觀週期定位現在該加碼、減碼、還是觀望；Marks 市場溫度計告訴你市場現在偏貴還是偏便宜；Munger 護城河篩選器識別值得長期持有的個股；Druckenmiller 催化劑雷達捕捉流動性方向與轉折訊號。四個鏡頭，一次裁決。L1 收到宏觀結論，L2/L3 看見完整推導過程。</p>
+      <div class="feature-name">Four-Lens Strategy</div>
+      <div class="feature-name-zh">四鏡頭策略選股</div>
+      <p class="feature-desc">從 Dalio 判大環境、Marks 定週期位置、Munger 篩護城河、Druckenmiller 鎖進場時機——四鏡頭串聯漏斗，每日系統化輸出。</p>
       <div class="feature-glow"></div>
     </div>
 
@@ -981,9 +1003,9 @@ footer {
         <circle cx="28" cy="12" r="1.5" fill="#c9a96e" opacity="0.6"/>
         <path d="M32 8 L34 12 L30 12 Z" fill="#c9a96e" opacity="0.5"/>
       </svg>
-      <div class="feature-name">Trend Intelligence</div>
+      <div class="feature-name">Weekly Intelligence</div>
       <div class="feature-name-zh">趨勢報告</div>
-      <p class="feature-desc">每週深度產業報告，涵蓋半導體、AI、地緣政治、Fed 動向。17 位市場專家訊號整合，去除噪音，留下值得你花時間讀的部分。</p>
+      <p class="feature-desc">每週日 20:00 推送週末策略報告，整合大盤溫度、法人動向、Marks 8D 週期評估，研判會員另附護城河動態評級。</p>
       <div class="feature-glow"></div>
     </div>
 
@@ -997,9 +1019,9 @@ footer {
         <circle cx="29" cy="13" r="2.5" fill="rgba(201,169,110,0.25)" stroke="#c9a96e" stroke-width="0.8"/>
         <path d="M28.3 13 L29 12 L29.7 13 L29 14 Z" fill="#c9a96e" opacity="0.8"/>
       </svg>
-      <div class="feature-name">CIO Daily Verdict</div>
-      <div class="feature-name-zh">CIO 每日裁決</div>
-      <p class="feature-desc">市場每天都在製造噪音。CIO 系統做的事只有一件：在噪音裡找出那一個值得你花兩分鐘讀完的判斷。盤前 08:10、盤後 13:40 推播。</p>
+      <div class="feature-name">CIO Verdict</div>
+      <div class="feature-name-zh">CIO 多空裁決</div>
+      <p class="feature-desc">Bull／Bear AI 代理人獨立辯論，CIO 每日裁決多空，盤前盤後各一次，研判會員接收完整辯論原文。</p>
       <div class="feature-glow"></div>
     </div>
 
@@ -1015,7 +1037,7 @@ footer {
       </svg>
       <div class="feature-name">Macro Radar</div>
       <div class="feature-name-zh">宏觀政策雷達</div>
-      <p class="feature-desc">Fed 利率動向、台灣央行政策、地緣政治事件、產業政策變化。系統自動偵測對台股有實質影響的政策訊號，不是新聞整理，是影響評估。</p>
+      <p class="feature-desc">同步監控美聯儲利率、台灣央行 M1B／M2 黃金交叉、NDC 景氣燈號、美國 ISM PMI、中國財新 PMI、台灣製造業 PMI 六大指標。</p>
       <div class="feature-glow"></div>
     </div>
 
@@ -1029,8 +1051,8 @@ footer {
         <path d="M20 4 L20 12 M36 14 L28 17 M36 26 L28 23 M20 36 L20 28 M4 26 L12 23 M4 14 L12 17" stroke="#c9a96e" stroke-width="0.5" opacity="0.3"/>
       </svg>
       <div class="feature-name">Member Access</div>
-      <div class="feature-name-zh">會員專區</div>
-      <p class="feature-desc">依訂閱層級解鎖不同深度的情報內容。L1 早安速報、L2 盤中警訊、L3 CIO 辯論原文與避險提醒。個人化 Telegram 推播，歷史報告存檔。</p>
+      <div class="feature-name-zh">會員專屬入口</div>
+      <p class="feature-desc">訂閱成功後直送 Telegram 頻道邀請，速報個人頻道、洞察完整情報推播、研判獨立推播群組。7 天免費試用從投資健檢開始。</p>
       <div class="feature-glow"></div>
     </div>
   </div>
@@ -1049,47 +1071,46 @@ footer {
     <div class="pricing-card">
       <div class="pricing-tier">Free Trial</div>
       <div class="pricing-name">免費體驗</div>
-      <div class="pricing-price" style="font-size:36px;letter-spacing:-0.02em;">7天</div>
+      <div class="pricing-price" style="font-size:36px;letter-spacing:-0.01em;">免費 · 7 天</div>
       <div class="pricing-period">完整 L1 體驗，每人限一次</div>
       <div class="pricing-divider"></div>
       <ul class="pricing-features">
-        <li>完整 L1 內容體驗</li>
-        <li>健檢完成後自動開通</li>
-        <li>早安速報 7 天完整接收</li>
-        <li>到期自動降回免費層</li>
+        <li>完成投資健檢取得人格分析</li>
+        <li>完整早報 7 天（含五維深度版）</li>
+        <li>早安速報每日 08:05 直送</li>
+        <li>到期後可選擇升級訂閱</li>
       </ul>
       <a href="#" class="pricing-cta outline">立即免費體驗</a>
     </div>
 
     <!-- L1 -->
     <div class="pricing-card">
-      <div class="pricing-tier">Level I</div>
-      <div class="pricing-name">基礎</div>
+      <div class="pricing-tier">Level I &nbsp;·&nbsp; 速報</div>
+      <div class="pricing-name">速報</div>
       <div class="pricing-price">USD <span style="font-size:36px">10</span></div>
       <div class="pricing-period">/ 月 &nbsp;·&nbsp; ~NT$320</div>
       <div class="pricing-divider"></div>
       <ul class="pricing-features">
-        <li>早安速報 08:05</li>
-        <li>每交易日 150 字市場結論</li>
-        <li>直送 Telegram 個人頻道</li>
-        <li>法人籌碼週度摘要</li>
+        <li>早安速報每日 08:05</li>
+        <li>完整早報（五維深度版）</li>
+        <li>宏觀風險燈號（Dalio 框架）</li>
+        <li>Telegram 個人頻道直送</li>
       </ul>
       <a href="#" class="pricing-cta outline">立即訂閱</a>
     </div>
 
     <!-- L2 — Featured -->
     <div class="pricing-card featured">
-      <div class="pricing-tier">Level II</div>
-      <div class="pricing-name">進階</div>
+      <div class="pricing-tier">Level II &nbsp;·&nbsp; 洞察</div>
+      <div class="pricing-name">洞察</div>
       <div class="pricing-price">USD <span style="font-size:36px">20</span></div>
       <div class="pricing-period">/ 月 &nbsp;·&nbsp; ~NT$640</div>
       <div class="pricing-divider"></div>
       <ul class="pricing-features">
-        <li>L1 全部內容</li>
-        <li>完整早報（深度版）</li>
+        <li>速報 所有內容</li>
         <li>盤中警訊即時推播</li>
-        <li>週末策略報告</li>
-        <li>趨勢報告完整版</li>
+        <li>週末策略報告（週日 20:00）</li>
+        <li>Marks 週期定位燈號</li>
         <li>宏觀政策雷達週報</li>
       </ul>
       <a href="#" class="pricing-cta filled">立即訂閱</a>
@@ -1097,22 +1118,23 @@ footer {
 
     <!-- L3 -->
     <div class="pricing-card">
-      <div class="pricing-tier">Level III</div>
-      <div class="pricing-name">機構級</div>
+      <div class="pricing-tier">Level III &nbsp;·&nbsp; 研判</div>
+      <div class="pricing-name">研判</div>
       <div class="pricing-price">USD <span style="font-size:36px">40</span></div>
       <div class="pricing-period">/ 月 &nbsp;·&nbsp; ~NT$1,280</div>
       <div class="pricing-divider"></div>
       <ul class="pricing-features">
-        <li>L2 全部內容</li>
-        <li>CIO 辯論原文</li>
+        <li>洞察 所有內容</li>
+        <li>CIO 多空辯論原文（每日）</li>
         <li>避險提醒即時推播</li>
-        <li>個股深度分析</li>
-        <li>每月配置觀點</li>
-        <li>全台限額開放</li>
+        <li>個股深度研究（每月 2–3 篇）</li>
+        <li>四鏡頭完整分解報告</li>
+        <li>月度資產配置觀點</li>
       </ul>
       <a href="#" class="pricing-cta outline">申請資格</a>
     </div>
   </div>
+  <p style="text-align:center;margin-top:36px;font-size:11px;color:var(--silver);letter-spacing:0.12em;">所有方案均可隨時取消 &nbsp;·&nbsp; 不設違約金 &nbsp;·&nbsp; 免費試用無需信用卡</p>
 </section>
 
 <!-- ─── FAQ ─── -->
@@ -1201,8 +1223,10 @@ footer {
   </div>
 </footer>
 
+<!-- ─── TWEAKS PANEL ─── -->
 
-</body><script>
+
+<script>
 // FAQ accordion
 function toggleFaq(btn) {
   const item = btn.closest('.faq-item');
